@@ -1,20 +1,17 @@
-let usernameInput = document.getElementById("searchInput");
-let allNamesDOMCollection = document.getElementsByClassName("name");
+
+let searchItems = document.getElementById("searchInput");
+const listItems = document.getElementsByClassName("name");
 
 
-usernameInput.addEventListener('keyup', function (event) {
+searchItems.addEventListener("keyup", function (event) {
+    let searchQuery = event.target.value;
 
-
-    let searchQuery = event.target.value.toLowerCase();
-
-    for (let counter = 0; counter < allNamesDOMCollection.length; counter++) {
-        const currentName = allNamesDOMCollection[counter].textContent.toLowerCase();
-        if (currentName.includes(searchQuery)) {
-            allNamesDOMCollection[counter].style.display = "block";
+    for (let i = 0; i < listItems.length; i++) {
+        const searchList = listItems[i].textContent.toLowerCase();
+        if (searchList.includes(searchQuery)) {
+            listItems[i].style.display = "block";
         } else {
-            allNamesDOMCollection[counter].style.display = "none";
+            listItems[i].style.display = "none";
         }
     }
 })
-
-
